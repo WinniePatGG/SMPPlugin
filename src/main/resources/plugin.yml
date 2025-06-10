@@ -1,0 +1,61 @@
+name: SMPPlugin
+version: '1.0'
+main: de.winniepat.SMPPlugin.SMPPlugin
+api-version: '1.21'
+load: STARTUP
+authors: [ WinniePat ]
+website: https://winniepat.de
+commands:
+  trash:
+    description: Öffne den Mülleimer zum Löschen von Items
+  report:
+    description: Spieler melden
+  reports:
+    description: Alle Reports anzeigen
+    permission: smputils.reports
+  suggestion:
+    description: Sende einen Vorschlag
+    usage: /<command> <Titel> | <Inhalt>
+  suggestions:
+    description: Zeigt alle Vorschläge im Chat
+    permission: smpplugin.suggestions.use
+    aliases:
+      - vorschlag
+  suggestionstatus:
+    description: Setze den Status eines Vorschlags
+    usage: /<command> <accept|reject|review> <ID>
+    permission: smpplugin.suggestion.status
+  suggestionsgui:
+    description: Öffne die Vorschlags-GUI
+    permission: smpplugin.suggestion.gui
+  coding:
+    description: Toggle coding status
+    usage: /coding <on|off>
+    permission: smpplugin.command.coding.use
+  winnie:
+    description: Toggle winnie status
+    usage: /winnie <on|off>
+    permission: smpplugin.command.winnie.use
+  pollstart:
+    description: Start a poll
+    aliases:
+      - poll
+  pollvote:
+    description: Vote on a poll
+    aliases:
+      - vote
+  pollresults:
+    description: Shows the results
+  bloodmoon:
+    description: Toggle the Bloodmoon event
+    usage: /bloodmoon
+    permission: smpplugin.bloodmoon.toggle
+  blackmarket:
+    description: Manually spawns the Black Market trader
+    usage: /blackmarket
+    permission: smpplugin.blackmarket.spawn
+  getwaypoint:
+    description: Get the waypoint stone
+    permission: smpplugin.waypoints.getwaypoint
+  addwaypoint:
+    description: Add a new waypoint

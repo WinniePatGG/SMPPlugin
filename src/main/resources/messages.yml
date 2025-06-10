@@ -1,0 +1,63 @@
+command.error.no_player: "§cOnly players are able to execute this command."
+command.error.no_permission: "§cYou don't have permissions to do that."
+
+# Coding Command
+command.coding.usage: "§cUse /coding on or /coding off"
+command.coding.already: "§eYou're already marked as coding."
+command.coding.marked: "§aYou are now marked as coding."
+command.coding.unmarked: "§aYou are no longer marked as coding."
+command.coding.error: "§cError while marking you as coding."
+
+# Coding Command
+command.winnie.usage: "§cUse /winnie on or /winnie off"
+command.winnie.already: "§eAleady Winnie."
+command.winnie.marked: "§aNow Winnie."
+command.winnie.unmarked: "§aNo longer Winnie."
+command.winnie.error: "§cError while marking you as Winnie."
+
+# Poll Command
+command.poll.usage: "§c/pollstart \"question\" Duration Option1 Option2 ..."
+command.poll.already_active: "§cThere is already an active poll."
+command.poll.invalid_time: "§cInvalid Time. Choose a number for seconds."
+
+# Vote GUI
+pollvotegui.already_voted: "§cYou already voted."
+
+# Report
+command.report.invalid_player: "§cInvalid Player."
+command.report.reason: "§cPlease tell us exactly the reason."
+command.report.success: "§aReport Saved! Staff will look at it."
+command.report.usage: "§7Use: §e/report <Player> <Reason>"
+
+# ReportActionGUI
+reportactiongui.not_found: "§cReport not found."
+reportactiongui.successful_delete: "§aReport deleted."
+reportactiongui.successful_ban: "§cPlayer was permanently banned."
+
+# Suggestion Command
+command.suggestion.usage: "§7Use: §e/suggestion \"Title with quotes\" My super Suggestion"
+command.suggestion.fail: "§cAn Error occurred. Your Suggestion couldn't be submitted."
+
+# SuggestionStatus Command
+command.suggestionstatus.usage: "§7Benutze: §e/suggestionstatus <accept|reject|review> <ID>"
+
+# Suggestion GUI
+suggestiongui.processing_error: "§cError while processing the suggestion-id."
+
+# Waypoint System
+waypoint.first_join: "§6You've received your first Waystone! Use it to set and teleport to waypoints."
+
+# GiveWaypointStoneListener
+getwaypoint.success: "&aWaypoint Stone added to your inventory."
+
+# addwaypoint Command
+addwaypoint.already_exists: "§cA waypoint with that name already exists."
+
+# WaypointListener
+waypointlistener.already_exists: "§cA waypoint with that name already exists."
+waypointlistener.movement: "§cWaypoint creation cancelled due to movement."
+
+# PlayerSneakListener
+blockelevators.on_cooldown: "§cElevator is cooling down"
+blockelevators.no_elevator_below: "§eNo elevator block below!"
+blockelevators.no_elevator_above: "§eNo elevator block above!"
