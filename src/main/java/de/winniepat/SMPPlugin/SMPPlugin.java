@@ -8,6 +8,8 @@ import de.winniepat.SMPPlugin.listeners.*;
 import de.winniepat.SMPPlugin.polls.*;
 import de.winniepat.SMPPlugin.report.*;
 import de.winniepat.SMPPlugin.report.commands.*;
+import de.winniepat.SMPPlugin.starter.MoveEvent;
+import de.winniepat.SMPPlugin.starter.StartCommand;
 import de.winniepat.SMPPlugin.suggestions.*;
 import de.winniepat.SMPPlugin.suggestions.commands.*;
 import de.winniepat.SMPPlugin.waypoints.*;
@@ -31,6 +33,7 @@ public final class SMPPlugin extends JavaPlugin {
     CodingCommand codingCommand = new CodingCommand(this, this);
     private FileConfiguration messages;
     private BloodmoonManager bloodmoonManager;
+    public static Set<UUID> frozenPlayers = new HashSet<>();
 
     @Override
     public void onEnable() {
@@ -90,6 +93,7 @@ public final class SMPPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("blackmarket")).setExecutor(new BlackMarketCommand(this));
         Objects.requireNonNull(getCommand("getwaypoint")).setExecutor(new WaypointCommands(waypointsDatabase, this));
         Objects.requireNonNull(getCommand("addwaypoint")).setExecutor(new WaypointCommands(waypointsDatabase, this));
+        Objects.requireNonNull(getCommand("smp")).setExecutor(new StartCommand());
 
 
     }
@@ -109,6 +113,8 @@ public final class SMPPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new WaypointListener(waypointsDatabase, this), this);
         getServer().getPluginManager().registerEvents(new PlayerJumpListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerSneakListener(), this);
+        getServer().getPluginManager().registerEvents(new MoveEvent(), this);
+        getServer().getPluginManager().registerEvents(new QuitLightningListener(), this);
         Bukkit.getPluginManager().registerEvents(new SuggestionGui(suggestionManager, this), this);
     }
 
