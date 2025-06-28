@@ -8,13 +8,6 @@ command.coding.marked: "§aYou are now marked as coding."
 command.coding.unmarked: "§aYou are no longer marked as coding."
 command.coding.error: "§cError while marking you as coding."
 
-# Coding Command
-command.winnie.usage: "§cUse /winnie on or /winnie off"
-command.winnie.already: "§eAleady Winnie."
-command.winnie.marked: "§aNow Winnie."
-command.winnie.unmarked: "§aNo longer Winnie."
-command.winnie.error: "§cError while marking you as Winnie."
-
 # Poll Command
 command.poll.usage: "§c/pollstart \"question\" Duration Option1 Option2 ..."
 command.poll.already_active: "§cThere is already an active poll."

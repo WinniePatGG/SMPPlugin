@@ -34,13 +34,14 @@ public final class SMPPlugin extends JavaPlugin {
     private FileConfiguration messages;
     private BloodmoonManager bloodmoonManager;
     public static Set<UUID> frozenPlayers = new HashSet<>();
+    private FirstPlayerJoinTracker firstPlayerJoinTracker;
 
     @Override
     public void onEnable() {
         saveDefaultMessages();
         loadMessages();
         instance = this;
-
+        this.firstPlayerJoinTracker = new FirstPlayerJoinTracker(this);
 
         File dbFile = new File(getDataFolder(), "suggestions.db");
         try {
@@ -116,6 +117,7 @@ public final class SMPPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MoveEvent(), this);
         getServer().getPluginManager().registerEvents(new QuitLightningListener(), this);
         Bukkit.getPluginManager().registerEvents(new SuggestionGui(suggestionManager, this), this);
+        Bukkit.getPluginManager().registerEvents(firstPlayerJoinTracker, this);
     }
 
     private void registerPollsystem() {
@@ -209,7 +211,6 @@ public final class SMPPlugin extends JavaPlugin {
             CooldownManager.setCooldown(player.getUniqueId());
         }
 
-        // Handle jumping (velocity upwards)
         if (player.getVelocity().getY() > 0.2 && !CooldownManager.isOnCooldown(player.getUniqueId())) {
             for (int y = blockBelow.getY() + 2; y <= player.getWorld().getMaxHeight(); y++) {
                 Block above = player.getWorld().getBlockAt(blockBelow.getX(), y, blockBelow.getZ());

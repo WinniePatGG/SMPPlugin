@@ -59,3 +59,6 @@ commands:
     permission: smpplugin.waypoints.getwaypoint
   addwaypoint:
     description: Add a new waypoint
+  smp:
+    description: start
+    usage: /smp start

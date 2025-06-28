@@ -89,14 +89,14 @@ public class BloodmoonListener implements Listener {
         entity.setCustomNameVisible(true);
 
         if (entity instanceof Zombie || entity instanceof Husk || entity instanceof Drowned) {
-            entity.getEquipment().setHelmet(createItem(Material.NETHERITE_HELMET, "Blood Helmet"));
-            entity.getEquipment().setChestplate(createItem(Material.NETHERITE_CHESTPLATE, "Blood Chestplate"));
-            entity.getEquipment().setLeggings(createItem(Material.NETHERITE_LEGGINGS, "Blood Leggings"));
-            entity.getEquipment().setBoots(createItem(Material.NETHERITE_BOOTS, "Blood Boots"));
-            entity.getEquipment().setItemInMainHand(createItem(Material.NETHERITE_SWORD, "Blood Blade"));
+            entity.getEquipment().setHelmet(createItem(Material.DIAMOND_HELMET, "Blood Helmet"));
+            entity.getEquipment().setChestplate(createItem(Material.DIAMOND_CHESTPLATE, "Blood Chestplate"));
+            entity.getEquipment().setLeggings(createItem(Material.DIAMOND_LEGGINGS, "Blood Leggings"));
+            entity.getEquipment().setBoots(createItem(Material.DIAMOND_BOOTS, "Blood Boots"));
+            entity.getEquipment().setItemInMainHand(createItem(Material.DIAMOND_SWORD, "Blood Blade"));
         } else if (entity instanceof Skeleton) {
-            entity.getEquipment().setHelmet(createItem(Material.NETHERITE_HELMET, "Blood Hood"));
-            entity.getEquipment().setChestplate(createItem(Material.NETHERITE_CHESTPLATE, "Blood Armor"));
+            entity.getEquipment().setHelmet(createItem(Material.DIAMOND_HELMET, "Blood Helmet"));
+            entity.getEquipment().setChestplate(createItem(Material.NETHERITE_CHESTPLATE, "Blood Chestplate"));
             entity.getEquipment().setItemInMainHand(createItem(Material.BOW, "Blood Bow"));
         }
 
@@ -125,8 +125,8 @@ public class BloodmoonListener implements Listener {
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
             meta.setDisplayName(ChatColor.RED + name);
-            meta.addEnchant(Enchantment.PROTECTION, 3, true);
-            meta.addEnchant(Enchantment.UNBREAKING, 2, true);
+            meta.addEnchant(Enchantment.PROTECTION, 2, true);
+            meta.addEnchant(Enchantment.UNBREAKING, 3, true);
             item.setItemMeta(meta);
         }
         return item;

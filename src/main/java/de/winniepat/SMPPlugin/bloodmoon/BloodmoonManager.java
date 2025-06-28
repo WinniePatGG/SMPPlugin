@@ -47,7 +47,7 @@ public class BloodmoonManager {
                             5, 0, 0, 0, 0, new Particle.DustOptions(Color.RED, 1));
                 }
             }
-        }, 0L, 1L); // Every second
+        }, 0L, 1L);
 
         bloodmoonBar = Bukkit.createBossBar("§4🌕 Bloodmoon Night", BarColor.RED, BarStyle.SEGMENTED_10);
         bloodmoonBar.setProgress(1.0);
@@ -59,7 +59,7 @@ public class BloodmoonManager {
         task = new BukkitRunnable() {
             @Override
             public void run() {
-                ticksElapsed += 20; // 20 ticks per second
+                ticksElapsed += 20;
                 double progress = Math.max(0, 1.0 - (double) ticksElapsed / durationTicks);
                 bloodmoonBar.setProgress(progress);
 
