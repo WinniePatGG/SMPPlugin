@@ -8,7 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -39,14 +38,24 @@ public class FirstPlayerJoinTracker implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         UUID uuid = event.getPlayer().getUniqueId();
         if (joinedPlayers.add(uuid)) {
+
             ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
             BookMeta bookMeta = (BookMeta) book.getItemMeta();
-            bookMeta.setItemName("...");
+
             bookMeta.setAuthor("Unknown Stranger");
-            bookMeta.setPages(splitIntoPages(longText, 250));
+
+            try {
+                bookMeta.getClass().getMethod("setTitle", String.class).invoke(bookMeta, "Willkommen in Lunaris");
+            } catch (Exception ignored) {
+            }
+
+            List<String> pages = splitIntoPages(longText, 250);
+            bookMeta.setPages(pages);
+
             book.setItemMeta(bookMeta);
 
             event.getPlayer().getInventory().addItem(book);
+
             save();
         }
     }
@@ -82,12 +91,13 @@ public class FirstPlayerJoinTracker implements Listener {
         }
     }
 
-    private static List<String> splitIntoPages(String text, int maxLength) {
+    private List<String> splitIntoPages(String text, int maxLength) {
         List<String> pages = new ArrayList<>();
-        while (text.length() > 0) {
-            int end = Math.min(maxLength, text.length());
-            pages.add(text.substring(0, end));
-            text = text.substring(end);
+        int index = 0;
+        while (index < text.length()) {
+            int endIndex = Math.min(index + maxLength, text.length());
+            pages.add(text.substring(index, endIndex));
+            index = endIndex;
         }
         return pages;
     }

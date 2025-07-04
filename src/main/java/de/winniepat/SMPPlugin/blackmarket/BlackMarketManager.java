@@ -31,7 +31,6 @@ public class BlackMarketManager {
             }
         }
 
-
         new BukkitRunnable() {
             @Override
             public void run() {

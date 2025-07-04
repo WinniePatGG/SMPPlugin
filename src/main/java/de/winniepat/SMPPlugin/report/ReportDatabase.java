@@ -24,7 +24,7 @@ public class ReportDatabase {
 
             String url = "jdbc:sqlite:" + folder.getAbsolutePath() + "/reports.db";
             connection = DriverManager.getConnection(url);
-            plugin.getLogger().info("Report fatabase successfully connectes.");
+            plugin.getLogger().info("Report database successfully connected.");
         } catch (SQLException e) {
             plugin.getLogger().warning("Error while connecting to the database: " + e.getMessage());
         }

@@ -92,7 +92,7 @@ public class BloodmoonManager {
             }
         }
         if (new Random().nextInt(100) < 5) {
-            new BlackMarketManager(plugin).spawnMarket();
+            //new BlackMarketManager(plugin).spawnMarket();
         }
         if (task != null) {
             task.cancel();

@@ -34,14 +34,12 @@ public final class SMPPlugin extends JavaPlugin {
     private FileConfiguration messages;
     private BloodmoonManager bloodmoonManager;
     public static Set<UUID> frozenPlayers = new HashSet<>();
-    private FirstPlayerJoinTracker firstPlayerJoinTracker;
 
     @Override
     public void onEnable() {
         saveDefaultMessages();
         loadMessages();
         instance = this;
-        this.firstPlayerJoinTracker = new FirstPlayerJoinTracker(this);
 
         File dbFile = new File(getDataFolder(), "suggestions.db");
         try {
@@ -49,15 +47,6 @@ public final class SMPPlugin extends JavaPlugin {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    checkForElevator(player);
-                }
-            }
-        }.runTaskTimer(this, 0L, 2L);
 
         registerWaypoints();
         getLogger().info("Waypoints registered");
@@ -95,8 +84,7 @@ public final class SMPPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("getwaypoint")).setExecutor(new WaypointCommands(waypointsDatabase, this));
         Objects.requireNonNull(getCommand("addwaypoint")).setExecutor(new WaypointCommands(waypointsDatabase, this));
         Objects.requireNonNull(getCommand("smp")).setExecutor(new StartCommand());
-
-
+        Objects.requireNonNull(getCommand("spawn")).setExecutor(new SpawnCommand());
     }
 
     private boolean handleGuiCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -117,7 +105,7 @@ public final class SMPPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MoveEvent(), this);
         getServer().getPluginManager().registerEvents(new QuitLightningListener(), this);
         Bukkit.getPluginManager().registerEvents(new SuggestionGui(suggestionManager, this), this);
-        Bukkit.getPluginManager().registerEvents(firstPlayerJoinTracker, this);
+        Bukkit.getPluginManager().registerEvents(new FirstPlayerJoinTracker(this), this);
     }
 
     private void registerPollsystem() {

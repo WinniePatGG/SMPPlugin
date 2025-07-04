@@ -62,3 +62,6 @@ commands:
   smp:
     description: start
     usage: /smp start
+  spawn:
+    description: spawn
+    usage: /spawn
