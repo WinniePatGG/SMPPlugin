@@ -100,11 +100,11 @@ public class BloodmoonListener implements Listener {
             entity.getEquipment().setItemInMainHand(createItem(Material.BOW, "Blood Bow"));
         }
 
-        entity.getEquipment().setHelmetDropChance(0f);
-        entity.getEquipment().setChestplateDropChance(0f);
-        entity.getEquipment().setLeggingsDropChance(0f);
-        entity.getEquipment().setBootsDropChance(0f);
-        entity.getEquipment().setItemInMainHandDropChance(0f);
+        entity.getEquipment().setHelmetDropChance(0.001f);
+        entity.getEquipment().setChestplateDropChance(0.001f);
+        entity.getEquipment().setLeggingsDropChance(0.001f);
+        entity.getEquipment().setBootsDropChance(0.001f);
+        entity.getEquipment().setItemInMainHandDropChance(0.001f);
 
         if (entity.getAttribute(Attribute.MAX_HEALTH) != null) {
             entity.getAttribute(Attribute.MAX_HEALTH).setBaseValue(80);
@@ -127,6 +127,7 @@ public class BloodmoonListener implements Listener {
             meta.setDisplayName(ChatColor.RED + name);
             meta.addEnchant(Enchantment.PROTECTION, 2, true);
             meta.addEnchant(Enchantment.UNBREAKING, 3, true);
+            meta.addEnchant(Enchantment.SHARPNESS, 2, true);
             item.setItemMeta(meta);
         }
         return item;
