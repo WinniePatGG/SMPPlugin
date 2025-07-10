@@ -85,6 +85,7 @@ public final class SMPPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("addwaypoint")).setExecutor(new WaypointCommands(waypointsDatabase, this));
         Objects.requireNonNull(getCommand("smp")).setExecutor(new StartCommand());
         Objects.requireNonNull(getCommand("spawn")).setExecutor(new SpawnCommand());
+        Objects.requireNonNull(getCommand("shop")).setExecutor(new ShopCommand());
     }
 
     private boolean handleGuiCommand(CommandSender sender, Command command, String label, String[] args) {
