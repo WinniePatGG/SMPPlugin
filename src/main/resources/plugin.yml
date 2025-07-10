@@ -65,3 +65,6 @@ commands:
   spawn:
     description: spawn
     usage: /spawn
+  shop:
+    description: shop
+    usage: /shop
